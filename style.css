@@ -19,7 +19,7 @@ body {
     
 }
 
-.write-todo {
+.todo-input {
     width: 25rem;
     height: 4rem;
     font-size: 1.2rem;
