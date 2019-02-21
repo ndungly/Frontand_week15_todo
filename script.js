@@ -37,6 +37,6 @@ const addTodoItem = inputTxt => {
 
 addToDo.addEventListener("click", () => {
     addTodoItem(todoInput.value);
-    console.log('here');
+    todoInput.value = "";
 })
 
