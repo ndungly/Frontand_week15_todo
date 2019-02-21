@@ -12,7 +12,7 @@ const toDoAllDone
 
 console.dir(document.querySelector(".todo-input"));
 
-// add a to do list item to the list, clear the input field and hide the empty message
+// add a to do list item to the list and clear the input field
 
 const addTodoItem = inputTxt => {
     if (inputTxt === "") {
@@ -22,7 +22,6 @@ const addTodoItem = inputTxt => {
     todoList.innerHTML += `<li class="to-do-item">${inputTxt}<button class="remove">x</button></li>`;
 }
 
-// add `<li class="to-do-item">${todoInput}<button class="remove">x</button></li>` to ul. Remove placeholder text.
 
 // toDoDone - strikethrough text, add eventlistener on entire list item.
 
@@ -33,10 +32,30 @@ const addTodoItem = inputTxt => {
 // toDoAllGone - when all gone, show text 'maybe you should add a to do?'.
 
 
-// EventListeners
+
+
+// Events
+
+
+// Add to do item and remove the 'empty' message
 
 addToDo.addEventListener("click", () => {
     addTodoItem(todoInput.value);
     todoInput.value = "";
+
+    if (todoList.children.length > 0) {
+        document.querySelector(".empty").hidden = true;
+    } else {
+        document.querySelector(".empty").hidden = false;
+    }
 })
+
+
+// Strikethrough text when clicking on the to do item
+
+todoList.addEventListener("click", event => {
+    if (event.target.classList.contains('to-do-item')) {
+    event.target.classList.toggle("to-do-done");
+}})
+
 
