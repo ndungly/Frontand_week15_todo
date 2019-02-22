@@ -5,6 +5,7 @@
 body {
     font-family: sans-serif;
     text-align: center;
+    position: relative;
 }
 
 .input-area {
@@ -67,7 +68,7 @@ h1 {
 
 .to-do-item {
     background-color: #0B7965;
-    width: 60rem;
+    width: 70vw;
     height: 5rem;
     padding: 1.5rem;
     font-size: 1.5rem;
@@ -80,6 +81,10 @@ h1 {
 }
 
 .to-do-done {
+    background-color: rgb(161, 231, 218);
+}
+
+.to-do-done p {
     text-decoration: line-through;
 }
 
@@ -95,6 +100,48 @@ h1 {
     color: white;
 }
 
+.to-do-done .remove {
+    background-color: rgb(161, 231, 218);
+}
+
 .remove:hover {
     border: 1px solid white;
+}
+
+.hurrah {
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+
+.popup {
+    background-color: #11B89A;
+    color: white;
+    height: 27rem;
+    margin-top: 17rem;
+}
+
+.popup h2 {
+    margin: 2rem 4rem 4rem 4rem;
+}
+
+.popup img {
+    width: 10rem;
+}
+
+.close {
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.close:hover {
+    background-color: rgba(255,255,255,0.1);
 }

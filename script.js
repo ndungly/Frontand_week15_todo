@@ -2,7 +2,8 @@ const todoInput = document.querySelector(".todo-input");
 const addToDo = document.querySelector(".add-todo");
 const todoList = document.querySelector(".to-do-list");
 const emptyMsg = document.querySelector(".empty");
-
+const popUp = document.querySelector(".hurrah");
+const closePopup = document.querySelector(".close");
 
 
 // add a to do list item to the list and clear the input field
@@ -12,7 +13,7 @@ const addTodoItem = inputTxt => {
         return;
     }
 
-    todoList.innerHTML += `<li class="to-do-item">${inputTxt}<button class="remove">x</button></li>`;
+    todoList.innerHTML += `<li class="to-do-item"><p>${inputTxt}</p><button class="remove">x</button></li>`;
 }
 
 
@@ -40,11 +41,14 @@ addToDo.addEventListener("click", () => {
 })
 
 
-// Strikethrough text when clicking on the to do item
+// Strikethrough text when clicking on the to do item, show popup when all to dos are striked through
 
 todoList.addEventListener("click", event => {
     if (event.target.classList.contains('to-do-item')) {
     event.target.classList.toggle("to-do-done");
+    }
+    if (todoList.children.length === todoList.querySelectorAll(".to-do-done").length) {
+        popUp.style.display = 'flex';
 }})
 
 
@@ -58,4 +62,11 @@ todoList.addEventListener("click", event => {
     if (todoList.children.length === 0) {
         emptyMsg.hidden = false;
     }
+})
+
+
+// Close popup
+
+closePopup.addEventListener("click", event => {
+    popUp.style.display = 'none';
 })
